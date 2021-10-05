@@ -26,7 +26,6 @@ inputs:
 
   - name: SECRET_1
     description: Secret 1
-    is-secret: true
 
   - name: ProductionEnvReviewer
     description: GitHub handle of the production environment reviewer
