@@ -1,7 +1,7 @@
 name: koushdey-test-stack
 description: This is a stack for testing in bug bash
 branding:
-  icon: 'Azure.svg'
+  icon: 'activity'
   color: 'blue'
 
 #-------------------------------------------------------------
