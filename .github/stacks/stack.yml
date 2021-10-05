@@ -26,6 +26,7 @@ inputs:
 
   - name: SECRET_1
     description: Secret 1
+    is_secret: true
 
   - name: ProductionEnvReviewer
     description: GitHub handle of the production environment reviewer
@@ -42,7 +43,7 @@ inputs:
 #-------------------------------------------------------------
 configs:
   # Meta data for creating the new repository
-  repo-metadata:
+ - repo-metadata:
     parameters:
       secrets: 
       - name: SECRET_1
@@ -52,7 +53,7 @@ configs:
       - sql
       
   # Branch Protection rules
-  branches:
+ - branches:
     - name: release_v? #branch name or pattern you want to protect
       parameters:
         enforce-admins: true
@@ -72,7 +73,7 @@ configs:
         allow-deletions: false
   
   # Environments & Secrets
-  environments: 
+ - environments: 
     - name: staging
       parameters: 
         protected-branches: false
@@ -85,7 +86,7 @@ configs:
             type: User
 
   # Security and configuration settings to be enabled/disabled
-  security:
+ - security:
     parameters: 
       vulnerability-alerts: ${{inputs.Enable_Vulnerability_Alerts}}
       automated-security-fixes: true
