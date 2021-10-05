@@ -27,6 +27,7 @@ inputs:
   - name: SECRET_1
     description: Secret 1
     is_secret: true
+    required: true
 
   - name: ProductionEnvReviewer
     description: GitHub handle of the production environment reviewer
@@ -45,6 +46,7 @@ configs:
   # Meta data for creating the new repository
  - repo-metadata:
     parameters:
+      description: This is a test stack for testing.
       secrets: 
       - name: SECRET_1
         value: ${{inputs.SECRET_1}}
