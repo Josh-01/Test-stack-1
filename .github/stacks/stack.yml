@@ -14,15 +14,6 @@ branding:
 # All inputs will be available for scripts/workflows run as part of stack init
 # Any input that is not explicitly configured as Repo/Environment secret will NOT be available in the new stack
 inputs:
-  - name: Reviewer_Count
-    default: 2
-    description: Number of required reviewers for PR
-    validvalues: 
-    - 2
-    - 3
-    - 4
-    - 5
-    - 6
 
   - name: SECRET_1
     description: Secret 1
@@ -51,28 +42,8 @@ configs:
       - name: SECRET_1
         value: ${{inputs.SECRET_1}}
       topics:
-      - rails
+      - node
       - sql
-      
-  # Branch Protection rules
- - branches:
-    - name: release_v? #branch name or pattern you want to protect
-      parameters:
-        enforce-admins: true
-        dismiss-stale-reviews: true
-        require-code-owner-reviews: true
-        required-approving-review-count: ${{ inputs.Reviewer_Count }}
-        allow-force-pushes: false
-        allow-deletions: false
-   
-    - name: dev_v? #branch name or pattern you want to protect
-      parameters:
-        enforce-admins: true
-        dismiss-stale-reviews: true
-        require-code-owner-reviews: true
-        required-approving-review-count: ${{ inputs.Reviewer_Count }}
-        allow-force-pushes: false
-        allow-deletions: false
   
   # Environments & Secrets
  - environments: 
